@@ -34,12 +34,17 @@ st.markdown(f"""
 
 html, body, [class*="css"] {{ font-family: 'Inter', sans-serif; }}
 h1, h2, h3 {{ font-family: 'Space Grotesk', sans-serif !important; letter-spacing: -0.01em; }}
-.block-container {{ padding-top: 1.4rem; max-width: 1240px; }}
+.block-container {{ padding-top: 2.6rem; max-width: 1240px; }}
 
-.brand {{ display:flex; align-items:baseline; gap:.8rem;
-  border-bottom:1px solid {LINE}; padding-bottom:1rem; }}
+/* Ascunde bara implicita Streamlit ca sa nu acopere antetul */
+header[data-testid="stHeader"] {{ background: transparent; height: 0; }}
+#MainMenu, footer {{ visibility: hidden; }}
+
+.brand {{ display:flex; flex-wrap:wrap; align-items:baseline; gap:.4rem .8rem;
+  border-bottom:1px solid {LINE}; padding-bottom:1rem; overflow:visible; }}
 .brand .logo {{ font-family:'Space Grotesk',sans-serif; font-weight:700;
-  font-size:1.9rem; color:{TEXT}; }}
+  font-size:clamp(1.35rem, 4.5vw, 1.9rem); line-height:1.2;
+  color:{TEXT}; white-space:nowrap; }}
 .brand .logo span {{ color:{BLUE}; }}
 .brand .tag {{ font-family:'IBM Plex Mono',monospace; font-size:.72rem;
   color:{MUTED}; text-transform:uppercase; letter-spacing:.14em; }}
